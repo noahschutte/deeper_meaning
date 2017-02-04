@@ -4,3 +4,12 @@
     <%= f.submit :Search %>
   </p>
 <% end %>
+
+<% if @search.errors.any?%>
+  <div class="error-container">
+    <h3><%= pluralize(@search.errors.count, "error") %></h3>
+    <% @search.errors.full_messages.each do |error| %>
+    <p class="error"><%= error %></p>
+    <%end%>
+  </div>
+<%end%>
