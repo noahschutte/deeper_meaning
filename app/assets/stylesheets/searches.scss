@@ -1,3 +1,26 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.search-container {
+  flex: 1;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.searches-container {
+  flex: 1;
+  border: 1px solid black;
+}
+
+.searches-title {
+  text-align: center;
+}
