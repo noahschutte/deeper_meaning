@@ -1,0 +1,10 @@
+<div class="searches-container">
+  <h2 class="searches-title">Recent Searches</h2>
+  <ul>
+  <% @searches.each do |search| %>
+    <li class="recent-search">
+      <%= link_to search.word, search %>
+    </li>
+  <% end %>
+  </ul>
+</div>

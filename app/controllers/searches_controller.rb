@@ -2,6 +2,7 @@ class SearchesController < ApplicationController
 
   def index
     @search = Search.new
+    @searches = Search.all
   end
 
   def create
@@ -18,6 +19,7 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.new
+    @searches = Search.all
     @word = Search.find(params[:id]).word
   end
 
