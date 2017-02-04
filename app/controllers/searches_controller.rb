@@ -29,6 +29,22 @@ class SearchesController < ApplicationController
     else
       @also = "No results found."
     end
+
+    examples_response = HTTParty.get "https://wordsapiv1.p.mashape.com/words/#{@word}/examples", headers:{ "X-Mashape-Key" => ENV['SECRET_KEY'], "Accept" => "application/json" }
+
+    if examples_response.code < 300 && JSON.parse(examples_response.body)["examples"].length != 0
+      @examples = '"' + JSON.parse(examples_response.body)["examples"][0] + '"'
+    else
+      @examples = "No results found."
+    end
+
+    categories_response = HTTParty.get "https://wordsapiv1.p.mashape.com/words/#{@word}/hasCategories", headers:{ "X-Mashape-Key" => ENV['SECRET_KEY'], "Accept" => "application/json" }
+
+    if categories_response.code < 300 && JSON.parse(categories_response.body)["hasCategories"].length != 0
+      @categories = JSON.parse(categories_response.body)["hasCategories"][0]
+    else
+      @categories = "No results found."
+    end
   end
 
 end
