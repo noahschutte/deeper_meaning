@@ -16,4 +16,9 @@ class SearchesController < ApplicationController
     end
   end
 
+  def show
+    @search = Search.new
+    @word = Search.find(params[:id]).word
+  end
+
 end
