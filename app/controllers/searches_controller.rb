@@ -21,6 +21,14 @@ class SearchesController < ApplicationController
     @search = Search.new
     @searches = Search.all
     @word = Search.find(params[:id]).word
+
+    also_response = HTTParty.get "https://wordsapiv1.p.mashape.com/words/#{@word}/also", headers:{ "X-Mashape-Key" => ENV['SECRET_KEY'], "Accept" => "application/json" }
+
+    if also_response.code < 300 && JSON.parse(also_response.body)["also"].length != 0
+      @also = JSON.parse(also_response.body)["also"][0]
+    else
+      @also = "No results found."
+    end
   end
 
 end
