@@ -14,11 +14,11 @@ Please do an initial commit after `rails new`, and commit logical chunks of work
 ## Requirements
 
 1. Page with a keyword search
-⋅⋅1. View results
-⋅⋅2. Sidebar that shows previous searches
-⋅⋅3. Link to kick them off
+  1. View results
+  2. Sidebar that shows previous searches
+  3. Link to kick them off
 2. No user auth required
-3. No fancy JavaScript or Styling required
+3. No fancy JavaScript or styling required
 4. Share on github
 5. Publish to Heroku
 
