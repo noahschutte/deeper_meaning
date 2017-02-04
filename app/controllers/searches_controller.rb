@@ -2,13 +2,13 @@ class SearchesController < ApplicationController
 
   def index
     @search = Search.new
-    @searches = Search.all
+    @searches = Search.all.order('created_at DESC')
   end
 
   def create
     word = params[:search][:word].strip
     @search = Search.new(word: word)
-    @searches = Search.all
+    @searches = Search.all.order('created_at DESC')
 
     if @search.save
       redirect_to @search
@@ -19,7 +19,7 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.new
-    @searches = Search.all
+    @searches = Search.all.order('created_at DESC')
     @word = Search.find(params[:id]).word
 
     also_response = HTTParty.get "https://wordsapiv1.p.mashape.com/words/#{@word}/also", headers:{ "X-Mashape-Key" => ENV['SECRET_KEY'], "Accept" => "application/json" }
