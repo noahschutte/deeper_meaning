@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DeeperMeaning</title>
+    <title>Deeper Meaning</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+    <header>
+      <h1>Deeper Meaning</h1>
+      <h2>Word Search</h2>
+      <%= render 'search_form' %>
+    </header>
     <%= yield %>
   </body>
 </html>
